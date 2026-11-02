@@ -1,0 +1,22 @@
+name: Verify
+on:
+  push:
+  pull_request:
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: |
+            admin/package-lock.json
+            server/package-lock.json
+      - run: npm run setup
+      - run: npm run build
+      - run: npm run test:server
+      - run: npx playwright install --with-deps chromium
+        working-directory: admin
+      - run: npm run test:admin

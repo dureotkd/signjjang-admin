@@ -1,0 +1,26 @@
+{
+  "name": "signjjang-admin-workspace",
+  "version": "1.0.0",
+  "private": true,
+  "engines": { "node": ">=20.19.0" },
+  "scripts": {
+    "setup": "npm --prefix server ci && npm --prefix admin ci",
+    "dev": "node scripts/dev.cjs",
+    "start": "npm --prefix server start",
+    "build": "npm --prefix admin run build",
+    "typecheck": "npm --prefix admin run typecheck",
+    "test": "npm --prefix server test && npm --prefix admin test",
+    "test:server": "npm --prefix server test",
+    "test:admin": "npm --prefix admin test",
+    "admin:install": "npm --prefix admin install",
+    "admin:dev": "npm --prefix admin run dev",
+    "admin:build": "npm --prefix admin run build",
+    "admin:typecheck": "npm --prefix admin run typecheck",
+    "admin:test": "npm --prefix admin test",
+    "admin:password": "node scripts/admin-password.cjs",
+    "server:dev": "npm --prefix server run dev",
+    "server:start": "npm --prefix server start",
+    "server:test": "npm --prefix server test",
+    "db:migrate": "npm --prefix server run migrate"
+  }
+}

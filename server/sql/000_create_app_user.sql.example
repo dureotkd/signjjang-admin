@@ -1,0 +1,11 @@
+-- 운영 환경에서는 root 계정 대신 아래와 같은 전용 계정을 사용하세요.
+-- 비밀번호와 접속 허용 호스트를 실제 환경에 맞게 변경한 뒤 root 권한으로 실행합니다.
+
+CREATE USER IF NOT EXISTS 'signjang_app'@'%'
+  IDENTIFIED BY 'REPLACE_WITH_A_STRONG_PASSWORD';
+
+GRANT SELECT, INSERT, UPDATE, DELETE
+  ON `signjang`.*
+  TO 'signjang_app'@'%';
+
+FLUSH PRIVILEGES;
